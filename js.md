@@ -2,7 +2,7 @@
 
 ## JavaScript
 
-There are a bazillion blog posts and books which cover the intricacies of JavaScript gotchas, best practices, performance improvements, etc. which are we will obviously not rewrite here. Instead, what follows are some conventions and preliminary stuff. (Also note that as responsible frontends building web *sites*, we would address progressive enhancement and ensure our site is usable to users without JavaScript. But we are working on a web *application* where JavaScript is considered required, so we will not delve into that for the moment.)
+There are a bazillion blog posts and books which cover the intricacies of JavaScript gotchas, best practices, performance improvements, etc. which we will obviously not rewrite here. Instead, what follows are some conventions and preliminary stuff. (Also note that as responsible frontends building web *sites*, we would address progressive enhancement and ensure our site is usable to users without JavaScript. But we are working on a web *application* where JavaScript is considered required, so we will not delve into that for the moment.)
 
 * It should not be necessary to have JavaScript either inline in an element (definitely no `onclick` handlers, etc) or in the `<head>` section of individual pages (exception: something that needs to be dynamically rendered).
 
@@ -60,7 +60,7 @@ There are a bazillion blog posts and books which cover the intricacies of JavaSc
 
 * An exception to the above can be made for a very fast `if (something) return false;` type of bailout in an otherwise busy function.
 
-* Indenting: 2 spaces. New lines are indented to next level, not to align with opening braces. Ensure closing braces match indentation level. `+++`
+* Indenting: New lines are indented to next level, not to align with opening braces. Ensure closing braces match indentation level. 2 spaces? (JavaScript tends to be much more nested.)`+++`
 
     **No**
 
@@ -77,16 +77,16 @@ There are a bazillion blog posts and books which cover the intricacies of JavaSc
     **Yes**
 
         element
-            .find('.actions')
-            .animate({
-                marginLeft:'-20px',
-                width: '1px',
-                paddingTop: '10px'
-            }, 100, function(){
-                $(this)
-                    .css('position','static')
-                    .hide();
-            });
+          .find('.actions')
+          .animate({
+            marginLeft:'-20px',
+            width: '1px',
+            paddingTop: '10px'
+          }, 100, function(){
+            $(this)
+              .css('position','static')
+              .hide();
+          });
 
 * Don't bother aligning around `=` in variable declarations. Makes adding new lines more annoying, doesn't really help with readability.
 
