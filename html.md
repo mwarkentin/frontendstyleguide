@@ -4,47 +4,45 @@
 
 * Properly indent nested elements, which helps readability, adding new elements, and in catching missing closing tags.
 
-**No**
+    **No**
 
         <div id="Foo">
             <span class="bar">Something</span></div>
+            <div id="Asdf">
+                Something
+        </div>
+
+    **Yes**
+
+        <div id="Foo">
+            <span class="bar">Something</span>
+        </div>
 
         <div id="Asdf">
             Something
-    </div>
-
-**Yes**
-
-    <div id="Foo">
-        <span class="bar">Something</span>
-    </div>
-
-    <div id="Asdf">
-        Something
-    </div>
-
+        </div>
 
 * Properly indent inside `if` statements and other template control blocks (eg `with`, `for`, etc), without worrying about maintaining indentation of the surrounding HTML structure. This makes the unique sections of the template's flow more obvious to parse visually (although it can make a changeset more cumbersome to read).
 
-**No**
+    **No**
 
-    <ul id="Something">
-        <li>Foo</li>
-        {% if baz %}
-        <li>Baz</li>
-        {% endif %}
-        <li>Quux</li>
-    </ul>
-
-**Yes**
-
-    <ul id="Something">
-        <li>Foo</li>
-        {% if baz %}
+        <ul id="Something">
+            <li>Foo</li>
+            {% if baz %}
             <li>Baz</li>
-        {% endif %}
-        <li>Quux</li>
-    </ul>
+            {% endif %}
+            <li>Quux</li>
+        </ul>
+
+    **Yes**
+
+        <ul id="Something">
+            <li>Foo</li>
+            {% if baz %}
+                <li>Baz</li>
+            {% endif %}
+            <li>Quux</li>
+        </ul>
 
 * Naming convention: name ids with upper camelcase, and classes with lowercase separated by dashes. This helps with CSS legibility (see below). +++
 
@@ -54,50 +52,50 @@
 
 * Be aware of when using an id to address elements is more concise.
 
-**No**
+    **No**
 
-    <ul>
-        <li class="something">...</li>
-        <li class="something">...</li>
-        <li class="something">...</li>
-        <li class="something">...</li>
-        <li class="something">...</li>
-    </ul>
+        <ul>
+            <li class="something">...</li>
+            <li class="something">...</li>
+            <li class="something">...</li>
+            <li class="something">...</li>
+            <li class="something">...</li>
+        </ul>
 
-    li.something {
-        ...
-    }
+        li.something {
+            ...
+        }
 
-**Yes**
+    **Yes**
 
-    <ul id="Something">
-        <li>...</li>
-        <li>...</li>
-        <li>...</li>
-        <li>...</li>
-        <li>...</li>
-    </ul>
+        <ul id="Something">
+            <li>...</li>
+            <li>...</li>
+            <li>...</li>
+            <li>...</li>
+            <li>...</li>
+        </ul>
 
-    #Something li {
-        ...
-    }
+        #Something li {
+            ...
+        }
 
-* Be aware of the opposite case, when adding class names can enhance CSS reuse (ie., perhaps you don't need to write any new CSS, where classes can be combined to give you the desired effect:
+* Be aware of the opposite case, when adding class names can enhance CSS reuse (ie., perhaps you don't need to write any new CSS, and classes can be combined to give you the desired effect):
 
-**No**
+    **No**
 
-    <div id="MyCustomOneOffBox">...</div>
+        <div id="MyCustomOneOffBox">...</div>
 
-**Yes**
+    **Yes**
 
-    <div class="box round alert message whatever">...</div>
+        <div class="box round alert message whatever">...</div>
 
 * Properly quote element attributes. This can be a potential security issue.
 
-**No**
+    **No**
 
-    <img src="{{ image.url }}" alt={{ image.alt_text }} />
+        <img src={{ image.url }} alt={{ image.alt_text }} />
 
-**Yes**
+    **Yes**
 
-    <img src="{{ image.url }}" alt="{{ image.alt_text }}" />
+        <img src="{{ image.url }}" alt="{{ image.alt_text }}" />
