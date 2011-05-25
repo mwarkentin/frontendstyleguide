@@ -14,15 +14,15 @@
         app2
             base.html
             what.html
-             yeah.html
+            yeah.html
 
 * Use a wrapper template block to be able to turn off inclusion of particular elements (named after what it is). Define an internal content block to put stuff in (named `foo_content`).
 
         {% block sidebar %}
-        <div class="whatever foo">
-            {% block sidebar_content %}
-            {% endblock %}
-        </div>
+            <div class="whatever foo">
+                {% block sidebar_content %}
+                {% endblock %}
+            </div>
         {% endblock %}
 
         // subtemplates can now turn off the sidebar:
