@@ -2,7 +2,7 @@
 
 ## CSS
 
-* Top boilerplate commenting: You can make an English-->hex colour quickref if helps for copying and pasting (obviously assuming you're not using some kind of CSS preprocessor). Don't worry about overly-complicated tables of content; Firebug/Inspector will tell you what line to get to faster. Organizing CSS, either within a file or across multiple, is beyond the scope of this document.
+* Top boilerplate commenting: You can make an English==>hex colour quickref if helps for copying and pasting (obviously assuming you're not using some kind of CSS preprocessor). Don't worry about overly-complicated tables of content; Firebug/Inspector will tell you what line to get to faster. Organizing CSS, either within a file or across multiple, is beyond the scope of this document (but piling everything into one file willy-nilly is obviously not so hot).
 
 * Standard CSS definitions: selector and opening brace on one line, new indented lines for each style declaration, closing brace on new line. Some people prefer writing CSS all on one line, but this makes reading changesets difficult.
 
@@ -148,4 +148,4 @@
             background-position: right bottom;
         }
 
-* Use relative path names in background URL definitions -- not full URLs starting with `http://` (unless for some reason the asset is truly offsite) and not absolute paths starting with `/` (which means you are likely hardcoding the `MEDIA_URL`)
+* Use relative path names in background URL definitions -- not full URLs starting with `http://` (unless for some reason the asset is truly offsite) and not absolute paths starting with `/` (in Django, this means you are likely hardcoding the `MEDIA_URL`)
