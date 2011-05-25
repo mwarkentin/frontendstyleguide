@@ -20,10 +20,10 @@ That said, there are known things that need to be done:
 * Add missing info, more details, etc.
 * Style/formatting cleanup
 * Add proper attributes, links, source material, etc.
-* Remove (or explain) Django-specific references
 
 
 ## Similar projects / References
 
 * [HTML5 Boilerplate](http://html5boilerplate.com/) ([source](https://github.com/paulirish/html5-boilerplate))
 * Whichever of [http://developer.fellowshipone.com/patterns/code.php](http://developer.fellowshipone.com/patterns/code.php) or [http://na.isobar.com/standards/](http://na.isobar.com/standards/) came first
+* [http://taitems.github.com/Front-End-Development-Guidelines/](http://taitems.github.com/Front-End-Development-Guidelines/)
