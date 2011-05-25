@@ -30,6 +30,8 @@
             <li>Foo</li>
             {% if baz %}
             <li>Baz</li>
+            {% else %}
+            <li>Bar</li>
             {% endif %}
             <li>Quux</li>
         </ul>
@@ -40,11 +42,20 @@
             <li>Foo</li>
             {% if baz %}
                 <li>Baz</li>
+            {% else %}
+                <li>Bar</li>
             {% endif %}
             <li>Quux</li>
         </ul>
 
-* Naming convention: name ids with upper camelcase, and classes with lowercase separated by dashes. This helps with CSS legibility (see below). +++
+* Naming convention 1: name ids with upper camelcase, and classes with lowercase separated by dashes. This helps with CSS legibility (see CSS doc). +++
+
+* Naming convention 2:
+
+        form ==> FooForm
+        list ==> FooList or FooNav
+        div ==> FooContainer
+        etc
 
 * We care about code validity not from a purist perspective but only in as much as it helps catch obvious bugs.
 
@@ -90,11 +101,12 @@
 
         <div class="box round alert message whatever">...</div>
 
-* Properly quote element attributes. This can be a potential security issue.
+* Properly quote element attributes if they are being substituted somehow with untrusted user-generated content. This can be a potential security issue.
 
     **No**
 
         <img src={{ image.url }} alt={{ image.alt_text }} />
+        // if alt_text is `"" onclick="...malicious js..."`, you're hosed
 
     **Yes**
 
