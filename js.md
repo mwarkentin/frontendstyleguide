@@ -187,7 +187,7 @@ There are a bazillion blog posts and books which cover the intricacies of JavaSc
         var a = {};
         var myArr = [];
 
-* jQuery: Refer to the event object as `e` (instead of `e`, `event`, `evt`...).
+* jQuery: Refer to the event object as `e` (instead of `e`, `event`, `evt`...). Refer to generic elements as `el` or `$el` (instead of `element`, `triggerElement`...). Refer to callbacks as `callback` (instead of `c`, `clbk`...).
 
 * jQuery: Be aware of the difference between `e.preventDefault();` and `return false;` in functions to cancel default browser behaviour. You probably want the former.
 
@@ -211,7 +211,7 @@ There are a bazillion blog posts and books which cover the intricacies of JavaSc
         $items.addClass('foo').show();
         baz = "b";
 
-* jQuery: Cache or chain selections.
+* jQuery: Cache or chain selections (this also helps with legibility).
 
     **No**
 
@@ -220,6 +220,14 @@ There are a bazillion blog posts and books which cover the intricacies of JavaSc
         $(".data").width(400);
         $(".data").fadeOut();
 
+        // ZOMG brackets everywhere
+        $("#foo").live('click', function(e){
+            var isLinkThis = $(e.target).is('#this');
+            var isLinkThat = $(e.targer).is('#that');
+            var isLinkSomething = $(e.target).hasClass('something');
+            ...
+        });
+
     **Yes**
 
         $(".data")
@@ -227,9 +235,15 @@ There are a bazillion blog posts and books which cover the intricacies of JavaSc
             .width(400);
             .fadeOut();
             
-        // also cache selections in a regular var:
-        var $listItems = $("#foo li");
-        // ... do something expensive with $listItems
+        var $listItems = $("#foo li"); // ... do something expensive with $listItems
+
+        $("#foo").live('click', function(e){
+            var $el = $(e.target);
+            var isLinkThis = $el.is('#this');
+            var isLinkThat = $el.is('#that');
+            var isLinkSomething = $el.hasClass('something');
+            ...
+        });
 
 * jQuery: Assemble new DOM elements first and attach them once.
 
