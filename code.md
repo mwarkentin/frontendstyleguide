@@ -9,3 +9,5 @@
 * Try to avoid leaving trailing whitespace. Some of us auto-remove this, and that can leave changesets quite noisy.
 
 * Eliminate unneeded code. Don't comment it out or leave it otherwise hanging around "just in case we might want it later". That's what we have version control for. Or save it for yourself somewhere else. [[1](http://www.informit.com/articles/article.aspx?p=1334908)]
+
+[1] http://www.informit.com/articles/article.aspx?p=1334908
